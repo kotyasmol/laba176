@@ -1,0 +1,69 @@
+﻿<Window x:Class="labik16.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Person Collection Manager" Height="650" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Меню -->
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="Load Collection" Click="LoadCollection_Click"/>
+                <MenuItem Header="Save Collection" Click="SaveCollection_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Панель для ввода данных -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <TextBlock Text="ID:" Margin="5"/>
+            <TextBox Name="txtPersonId" Margin="5"/>
+
+            <TextBlock Text="Name:" Margin="5"/>
+            <TextBox Name="txtPersonName" Margin="5"/>
+
+            <TextBlock Text="Age:" Margin="5"/>
+            <TextBox Name="txtPersonAge" Margin="5"/>
+
+            <TextBlock Text= "Grade (for scholar):" Margin="5"/>
+            <TextBox Name="txtPersonGrade" Margin="5"/>
+
+            <TextBlock Text= "School (for scholar):" Margin="5"/>
+            <TextBox Name="txtPersonSchool" Margin="5"/>
+
+            <TextBlock Text="University (for student):" Margin="5"/>
+            <TextBox Name="txtPersonUniversity" Margin="5"/>
+
+            <TextBlock Text="Workplace (for part-time student):" Margin="5"/>
+            <TextBox Name="txtPersonWorkPlace" Margin="5"/>
+
+            <!-- Кнопки для добавления различных типов объектов -->
+            <Button Content="Add Person" Margin="5" Click="AddPerson_Click"/>
+            <Button Content="Add Scholar" Margin="5" Click="AddScholar_Click"/>
+            <Button Content="Add Student" Margin="5" Click="AddStudent_Click"/>
+            <Button Content="Add Part-Time Student" Margin="5" Click="AddPartTimeStudent_Click"/>
+
+            <Button Content="Remove Person" Margin="5" Click="RemovePerson_Click"/>
+            <Button Content="Update Person" Margin="5" Click="UpdatePerson_Click"/>
+        </StackPanel>
+
+        <!-- Таблица для отображения данных -->
+        <DataGrid Name="personDataGrid" Grid.Row="1" Grid.Column="1" Margin="10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                <DataGridTextColumn Header="Grade" Binding="{Binding Grade}" />
+                <DataGridTextColumn Header="School" Binding="{Binding School}" />
+                <DataGridTextColumn Header="University" Binding="{Binding University}" />
+                <DataGridTextColumn Header="Workplace" Binding="{Binding Workplace}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
